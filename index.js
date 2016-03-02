@@ -19,7 +19,8 @@ seneca.add({role: 'role', cmd: 'cmd'}, function(args, done) {
 
 seneca.use(require('./plugin.js'), {option: true});
 
-seneca.act({role: 'role', cmd: 'cmd', extras: 'extras'}, function(err, args) {
+var senecaDelegate = seneca.delegate({delegated$: 'this was a delegated property'});
+senecaDelegate.act({role: 'role', cmd: 'cmd', extras: 'extras'}, function(err, args) {
 	console.log('original done');
 	console.log('err:', err);
 	console.log('args:', args);
