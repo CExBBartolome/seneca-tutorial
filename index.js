@@ -1,5 +1,6 @@
 var seneca = require('seneca')();
 
+/*
 seneca.add({role: 'role', cmd: 'cmd'}, function(args, done) {
 	console.log('1st args:', args);
 	done(null, null);
@@ -13,6 +14,10 @@ seneca.add({role: 'role', cmd: 'cmd'}, function(args, done) {
 		done(err, args);
 	});
 });
+
+*/
+
+seneca.use(require('./plugin.js'), {option: true});
 
 seneca.act({role: 'role', cmd: 'cmd', extras: 'extras'}, function(err, args) {
 	console.log('original done');
